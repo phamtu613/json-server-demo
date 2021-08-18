@@ -1,0 +1,50 @@
+@baseUrl = http://localhost:3000/api
+
+@resourceName = products
+# Products
+
+# @name getAll
+GET {{baseUrl}}/{{resourceName}}
+
+###
+# @name filter
+GET {{baseUrl}}/{{resourceName}}?color=cyan&price_gte=700
+
+###
+# @name filter_like
+GET {{baseUrl}}/{{resourceName}}?color_like=Cya
+
+###
+# @name pagination
+GET {{baseUrl}}/{{resourceName}}?_page=1&_limit=5
+
+###
+# @name sort
+GET {{baseUrl}}/{{resourceName}}?_sort=price&_order=desc
+
+###
+# @name addNew
+POST {{baseUrl}}/{{resourceName}}
+Content-Type: application/json
+
+{
+    "categoryId": "28759f7e-3509-4064-920a-406dd426033a",
+    "name": "Tasty Plastic Chips",
+    "color": "white",
+    "price": 730,
+    "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+    "thumbnailUrl": "http://placeimg.com/400/400"
+  }
+
+###
+# @name update
+PATCH  {{baseUrl}}/{{resourceName}}/Tg6yms5
+Content-Type: application/json
+
+{
+    "color": "red"
+}
+
+###
+# @name delete
+DELETE {{baseUrl}}/{{resourceName}}/SY4VbWk
